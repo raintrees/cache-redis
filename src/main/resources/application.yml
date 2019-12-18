@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: cache-redis
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/sports?useSSH=false
+    username: root
+    password: root
+  redis:
+    host: 192.168.13.135
+    port: 6379
+    database: 0
+  cache:
+    type: redis #用redis做缓存
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+cache:
+  default-exp: 100 #设置缓存的过期时间,以秒为单位
