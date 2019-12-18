@@ -5,10 +5,7 @@ import com.example.redis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author raintrees
@@ -25,6 +22,16 @@ public class UserController {
         User user=userService.queryUserById(id);
         HttpStatus status = user == null ? HttpStatus.NOT_FOUND :HttpStatus.OK;
         return new ResponseEntity<User>(user,status);
+    }
+
+    @PostMapping(value = "/saveUser")
+    public User saveUser( User user){
+        User newUser = userService.saveUser(user);
+        if(user == null){
+            newUser.setUsername("404哦，亲");
+            return newUser;
+        }
+        return newUser;
     }
 
 }

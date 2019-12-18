@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.Query;
  */
 public interface UserRepository extends JpaRepository<User,Integer> {
 
-    @Query("select u.id as id,u.username as username,u.password as password from User u where id = id1")
+    @Query(value = "select u.id as id,u.username as username,u.password as password from User u where id = ?1",nativeQuery = true)
     User findByUserId(Integer id);
 
 }

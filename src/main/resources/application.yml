@@ -3,7 +3,7 @@ spring:
     name: cache-redis
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/sports?useSSH=false
+    url: jdbc:mysql://localhost:3306/sports?useSSL=false
     username: root
     password: root
   redis:
